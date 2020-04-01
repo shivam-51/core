@@ -49,6 +49,8 @@
 #include <com/sun/star/drawing/LineCap.hpp>
 #include <com/sun/star/uno/Reference.h>
 
+#include <drawinglayer/primitive2d/Primitive2DContainer.hxx>
+
 #include <memory>
 #include <vector>
 
@@ -1951,6 +1953,9 @@ public:
      */
     SAL_DLLPRIVATE basegfx::B2DHomMatrix ImplGetDeviceTransformation() const;
     ///@}
+
+
+    bool drawPrimitive2D(drawinglayer::primitive2d::Primitive2DContainer & rPrimitive2D);
 
 
     /** @name Native Widget Rendering functions

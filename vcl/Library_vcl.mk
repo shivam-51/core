@@ -80,6 +80,7 @@ $(eval $(call gb_Library_use_libraries,vcl,\
     basegfx \
     comphelper \
     cppuhelper \
+    drawinglayercore \
     i18nlangtag \
     i18nutil \
     $(if $(filter OPENCL,$(BUILD_TYPE)),opencl) \
