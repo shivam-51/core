@@ -19,10 +19,11 @@
 
 #pragma once
 
-#include <memory>
 #include <vcl/dllapi.h>
+
+#include <memory>
 #include <o3tl/typed_flags_set.hxx>
-#include <vcl/bitmap.hxx>
+#include <basegfx/bitmap/BitmapAttributes.hxx>
 
 enum class GraphicDrawMode
 {
@@ -36,7 +37,7 @@ class VCL_DLLPUBLIC GraphicAttr
 {
 private:
     double mfGamma;
-    BmpMirrorFlags mnMirrFlags;
+    basegfx::MirrorDirectionFlags mnMirrFlags;
     long mnLeftCrop;
     long mnTopCrop;
     long mnRightCrop;
@@ -60,8 +61,8 @@ public:
     void SetDrawMode(GraphicDrawMode eDrawMode) { meDrawMode = eDrawMode; }
     GraphicDrawMode GetDrawMode() const { return meDrawMode; }
 
-    void SetMirrorFlags(BmpMirrorFlags nMirrFlags) { mnMirrFlags = nMirrFlags; }
-    BmpMirrorFlags GetMirrorFlags() const { return mnMirrFlags; }
+    void SetMirrorFlags(basegfx::MirrorDirectionFlags nMirrFlags) { mnMirrFlags = nMirrFlags; }
+    basegfx::MirrorDirectionFlags GetMirrorFlags() const { return mnMirrFlags; }
 
     void SetCrop(long nLeft_100TH_MM, long nTop_100TH_MM, long nRight_100TH_MM,
                  long nBottom_100TH_MM)
@@ -104,7 +105,7 @@ public:
     sal_uInt8 GetTransparency() const { return mcTransparency; }
 
     bool IsSpecialDrawMode() const { return (meDrawMode != GraphicDrawMode::Standard); }
-    bool IsMirrored() const { return mnMirrFlags != BmpMirrorFlags::NONE; }
+    bool IsMirrored() const { return mnMirrFlags != basegfx::MirrorDirectionFlags::NONE; }
     bool IsCropped() const
     {
         return (mnLeftCrop != 0 || mnTopCrop != 0 || mnRightCrop != 0 || mnBottomCrop != 0);

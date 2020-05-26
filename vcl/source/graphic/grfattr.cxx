@@ -21,7 +21,7 @@
 
 GraphicAttr::GraphicAttr() :
     mfGamma         ( 1.0 ),
-    mnMirrFlags     ( BmpMirrorFlags::NONE ),
+    mnMirrFlags     ( basegfx::MirrorDirectionFlags::NONE ),
     mnLeftCrop      ( 0 ),
     mnTopCrop       ( 0 ),
     mnRightCrop     ( 0 ),
