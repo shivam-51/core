@@ -30,6 +30,9 @@
 
 #include "shapemanager.hxx"
 
+namespace box2d::utils { class box2DWorld;
+                         typedef ::std::shared_ptr< box2DWorld > Box2DWorldSharedPtr; }
+
 /* Definition of AnimationFactory class */
 
 namespace slideshow
@@ -81,18 +84,21 @@ namespace slideshow
                                                                            const AnimatableShapeSharedPtr&      rShape,
                                                                            const ShapeManagerSharedPtr&         rShapeManager,
                                                                            const ::basegfx::B2DVector&          rSlideSize,
+                                                                           const box2d::utils::Box2DWorldSharedPtr pBox2DWorld,
                                                                            int                                  nFlags=0 );
 
             EnumAnimationSharedPtr createEnumPropertyAnimation( const OUString&                   rAttrName,
                                                                        const AnimatableShapeSharedPtr&          rShape,
                                                                        const ShapeManagerSharedPtr&             rShapeManager,
                                                                        const ::basegfx::B2DVector&              rSlideSize,
+                                                                       const box2d::utils::Box2DWorldSharedPtr pBox2DWorld,
                                                                        int                                      nFlags );
 
             ColorAnimationSharedPtr  createColorPropertyAnimation( const OUString&                rAttrName,
                                                                           const AnimatableShapeSharedPtr&       rShape,
                                                                           const ShapeManagerSharedPtr&          rShapeManager,
                                                                           const ::basegfx::B2DVector&           rSlideSize,
+                                                                          const box2d::utils::Box2DWorldSharedPtr pBox2DWorld,
                                                                           int                                   nFlags=0 );
 
             /** Create scale or move animation
@@ -106,18 +112,21 @@ namespace slideshow
                                                                          const ShapeManagerSharedPtr&           rShapeManager,
                                                                          const ::basegfx::B2DVector&            rSlideSize,
                                                                          sal_Int16                              nTransformType,
+                                                                         const box2d::utils::Box2DWorldSharedPtr pBox2DWorld,
                                                                          int                                    nFlags );
 
             StringAnimationSharedPtr createStringPropertyAnimation( const OUString&               rAttrName,
                                                                            const AnimatableShapeSharedPtr&      rShape,
                                                                            const ShapeManagerSharedPtr&         rShapeManager,
                                                                            const ::basegfx::B2DVector&          rSlideSize,
+                                                                           const box2d::utils::Box2DWorldSharedPtr pBox2DWorld,
                                                                            int                                  nFlags );
 
             BoolAnimationSharedPtr   createBoolPropertyAnimation( const OUString&                 rAttrName,
                                                                          const AnimatableShapeSharedPtr&        rShape,
                                                                          const ShapeManagerSharedPtr&           rShapeManager,
                                                                          const ::basegfx::B2DVector&            rSlideSize,
+                                                                         const box2d::utils::Box2DWorldSharedPtr pBox2DWorld,
                                                                          int                                    nFlags );
 
             NumberAnimationSharedPtr createPathMotionAnimation( const OUString&                   rSVGDPath,
@@ -125,7 +134,16 @@ namespace slideshow
                                                                        const AnimatableShapeSharedPtr&          rShape,
                                                                        const ShapeManagerSharedPtr&             rShapeManager,
                                                                        const ::basegfx::B2DVector&              rSlideSize,
-                                                                       int                                      nFlags);
+                                                                       const box2d::utils::Box2DWorldSharedPtr pBox2DWorld,
+                                                                       int                                      nFlags );
+
+            NumberAnimationSharedPtr createSimulatedAnimation( const box2d::utils::Box2DWorldSharedPtr pBox2DWorld,
+                                                               const double                            fDuration,
+                                                               sal_Int16                               nAdditive,
+                                                               const AnimatableShapeSharedPtr&         /*rShape*/,
+                                                               const ShapeManagerSharedPtr&            rShapeManager,
+                                                               const ::basegfx::B2DVector&             rSlideSize,
+                                                               int                                     nFlags );
         }
     }
 }
