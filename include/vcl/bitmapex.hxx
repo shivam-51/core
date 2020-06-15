@@ -25,6 +25,8 @@
 #include <vcl/Scanline.hxx>
 #include <tools/color.hxx>
 
+#include <basegfx/bitmap/Bitmap.hxx>
+
 #include <sal/types.h>
 
 namespace com::sun::star::rendering {
@@ -40,7 +42,7 @@ enum class TransparentType
     Bitmap
 };
 
-class SAL_WARN_UNUSED VCL_DLLPUBLIC BitmapEx
+class SAL_WARN_UNUSED VCL_DLLPUBLIC BitmapEx : basegfx::IBitmap
 {
 public:
 
