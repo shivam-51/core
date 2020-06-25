@@ -16,34 +16,16 @@
  *   except in compliance with the License. You may obtain a copy of
  *   the License at http://www.apache.org/licenses/LICENSE-2.0 .
  */
-#ifndef __com_sun_star_presentation_EffectPresetClass_idl__
-#define __com_sun_star_presentation_EffectPresetClass_idl__
+#ifndef __com_sun_star_animations_AnimateSimulation_idl__
+#define __com_sun_star_animations_AnimateSimulation_idl__
+
+#include <com/sun/star/animations/XAnimationNode.idl>
 
 
- module com {  module sun {  module star {  module presentation {
+module com {  module sun {  module star {  module animations {
 
 
-/** This constants defines the class for a preset animation effect.
-    <br>
-    This is stored with the name <i>preset-class</i> inside the
-    ::com::sun::star::animations::XAnimationNode::UserData sequence.
-    <br>
-    This does not manipulate the timing or synchronization.
-    It can be used to quickly identify preset animations inside an animation hierarchy.
-
-    @see ::com::sun::star::animations::XAnimationNode
-*/
-constants EffectPresetClass
-{
-    const short CUSTOM = 0;
-    const short ENTRANCE = 1;
-    const short EXIT = 2;
-    const short EMPHASIS = 3;
-    const short MOTIONPATH = 4;
-    const short MOTIONSIMULATION = 7;
-    const short OLEACTION = 5;
-    const short MEDIACALL = 6;
-};
+service AnimateSimulation : com::sun::star::animations::XAnimationNode;
 
 
 }; }; }; };
